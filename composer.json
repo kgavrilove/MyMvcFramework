@@ -1,0 +1,13 @@
+{
+  "name": "kgavrilove/my-mvc-framewok",
+  "description": "I try to make implementation of ORM with Active record and Data Mapper. And possible try to make some tests",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "require": {
+    "symfony/routing": "^5.4",
+    "symfony/http-foundation": "^5.4"
+  }
+}
