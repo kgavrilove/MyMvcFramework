@@ -5,7 +5,7 @@ namespace App\Tools;
 use PDO;
 use PDOException;
 
-class Database extends PDO
+class Database extends PDO implements IDatabase
 {
 
     public function __construct($DB_TYPE, $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS)

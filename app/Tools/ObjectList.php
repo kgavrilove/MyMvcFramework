@@ -4,7 +4,7 @@ namespace App\Tools;
 
 use App\Models\ActiveRecord\User;
 
-class ObjectList
+class ObjectList implements IObjectList
 {
     private $list;
 
@@ -13,7 +13,7 @@ class ObjectList
 
     }
 
-    public function add( $object)
+    public function add(object $object)
     {
         $this->list[]=$object;
     }

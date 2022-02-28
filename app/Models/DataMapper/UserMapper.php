@@ -6,9 +6,9 @@ use App\Tools\ObjectList;
 
 class UserMapper extends Mapper
 {
-    private $table='users';
+    protected $table='users';
 
-    public function create(array $data)
+    public function create(array $data) :DMUser
     {
         $response= $this->db->insert($this->table,$data);
 
@@ -16,7 +16,7 @@ class UserMapper extends Mapper
 
     }
 
-    public function getAll()
+    public function getAll() :ObjectList
     {
         $response=$this->db->select('SELECT * FROM '.$this->table);
         $list=new ObjectList();
@@ -30,7 +30,7 @@ class UserMapper extends Mapper
         return $list;
     }
 
-    public function getById($id)
+    public function getById(int $id) :DMUser
     {
         $response=$this->db->select('SELECT * FROM '.$this->table.' WHERE users.id='.$id);
 

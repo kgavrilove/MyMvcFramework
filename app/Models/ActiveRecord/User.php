@@ -9,43 +9,43 @@ use App\Tools\UserList;
 
 class User extends Model
 {
-    private $table='users';
-    private $id;
-    private $login;
-    private $password;
+    protected string $table='users';
+    private int $id;
+    private string $login;
+    private string $password;
 
 
-    public function getId()
+    public function getId() :int
     {
         return $this->id;
     }
 
-    public function getLogin()
+    public function getLogin() :string
     {
         return $this->login;
     }
 
-    public function getPassword()
+    public function getPassword() :string
     {
         return $this->password;
     }
 
-    public function setId($id)
+    public function setId(int $id) :void
     {
         $this->id=$id;
     }
 
-    public function setLogin($login)
+    public function setLogin(string $login) :void
     {
         $this->login=$login;
     }
 
-    public function setPassword($password)
+    public function setPassword(string $password) :void
     {
         $this->password=$password;
     }
 
-    public function create(array $data)
+    public function create(array $data) :User
     {
         $response= $this->db->insert($this->table,$data);
 
@@ -53,7 +53,7 @@ class User extends Model
 
     }
 
-    public function getAll()
+    public function getAll() :ObjectList
     {
         $response=$this->db->select('SELECT * FROM '.$this->table);
         $list=new ObjectList();
@@ -67,7 +67,7 @@ class User extends Model
         return $list;
     }
 
-    public function getById($id)
+    public function getById(string $id) :User
     {
         $response=$this->db->select('SELECT * FROM '.$this->table.' WHERE users.id='.$id);
 
